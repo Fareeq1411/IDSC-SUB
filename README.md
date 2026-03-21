@@ -62,7 +62,7 @@ Open Terminal on macOS or Command Prompt / PowerShell on Windows, then move into
 Example:
 
 ```bash
-cd /Users/fareeqshahfitri/Desktop/Self_Project/Submission_IDSC
+cd /path/to/HYGD-Glaucoma-Detection
 ```
 
 ## 3. Create a Virtual Environment
