@@ -1,6 +1,15 @@
-# Glaucoma Screening App
+# HYGD Glaucoma Detection
 
-This project runs a local Flask web app for glaucoma screening from eye scan images.
+This project runs a local Flask web app for glaucoma detection using the Hillel Yaffe Glaucoma Dataset (HYGD).
+
+## Dataset
+
+This project is based on the `Hillel Yaffe Glaucoma (HYGD)` dataset selected for the competition.
+
+- Modality: retinal fundus images
+- Format: `.jpg` images with `Labels.csv`
+- Target task: glaucomatous optic neuropathy (GON) detection
+- Extra information: includes image quality scores for quality-aware medical computer vision modeling
 
 ## Project Files
 
@@ -53,7 +62,7 @@ Open Terminal on macOS or Command Prompt / PowerShell on Windows, then move into
 Example:
 
 ```bash
-cd /path/to/Submission_IDSC
+cd /Users/fareeqshahfitri/Desktop/Self_Project/Submission_IDSC
 ```
 
 ## 3. Create a Virtual Environment
