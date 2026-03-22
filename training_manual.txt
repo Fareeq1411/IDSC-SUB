@@ -1,0 +1,5 @@
+
+1) Download Model 1 , Model 2 and Datasets folders from below link 
+https://drive.google.com/drive/folders/1LJ4BNkLy2T4nyAMGdh-d_RXr5Y4ewA-3?usp=sharing
+
+2) Call the train_model() function in resnet50_model.py to train the Classifier Model
