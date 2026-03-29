@@ -60,14 +60,14 @@ Since this is a public repository, you first need to clone it to your local mach
 
 ```bash
 git clone https://github.com/Fareeq1411/IDSC-SUB.git
-cd HYGD-Glaucoma-Detection
+cd IDSC-SUB
 ```
 
 ### Windows
 
 ```powershell
 git clone https://github.com/Fareeq1411/IDSC-SUB.git
-cd HYGD-Glaucoma-Detection
+cd IDSC-SUB
 ```
 
 ---
