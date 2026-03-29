@@ -111,7 +111,7 @@ python3 --version
 
 1. Go to [https://www.python.org/downloads/](https://www.python.org/downloads/)
 2. Install Python
-3. Enable **Add Python to PATH**
+3. Enable **Add Python to PATH** (On the bottom checkbox during installation)
 4. Verify:
 
 ```powershell
