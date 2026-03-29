@@ -4,7 +4,6 @@ This project runs a local Flask web app for glaucoma detection using the Hillel 
 
 ---
 
-## Before You Start
 
 If you want to **train the model yourself**, refer to:
 
@@ -15,6 +14,8 @@ training_manual.txt
 This project already includes trained weights, so training is optional.
 
 ---
+
+## Before You Start
 
 ## 0. Install Git (If You Don't Have It)
 
