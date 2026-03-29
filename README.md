@@ -51,7 +51,7 @@ git --version
 
 ---
 
-## 1. Clone the Repository
+## 0.1. Clone the Repository
 
 Since this is a public repository, you first need to clone it to your local machine.
 
