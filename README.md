@@ -127,10 +127,10 @@ py --version
 
 ---
 
-## 2. Open the Project Folder
+## 2. Open the Project Folder (If Not Yet)
 
 ```bash
-cd /path/to/HYGD-Glaucoma-Detection
+cd IDSC-SUB
 ```
 
 ---
