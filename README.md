@@ -16,21 +16,56 @@ This project already includes trained weights, so training is optional.
 
 ---
 
-## 0. Clone the Repository
+## 0. Install Git (If You Don't Have It)
+
+If you have never used Git before, you need to install it first.
+
+### macOS
+
+1. Install using Homebrew (recommended):
+
+```bash
+git --version || brew install git
+```
+
+2. Or download from: [https://git-scm.com/download/mac](https://git-scm.com/download/mac)
+
+3. Verify installation:
+
+```bash
+git --version
+```
+
+---
+
+### Windows
+
+1. Download Git from: [https://git-scm.com/download/win](https://git-scm.com/download/win)
+2. Run the installer (use default settings)
+3. After installation, open Command Prompt or PowerShell
+4. Verify:
+
+```powershell
+git --version
+```
+
+---
+
+## 1. Clone the Repository
 
 Since this is a public repository, you first need to clone it to your local machine.
 
 ### macOS / Linux
 
 ```bash
-git clone https://github.com/<your-repo-link>.git
+git clone https://github.com/Fareeq1411/IDSC-SUB.git
 cd HYGD-Glaucoma-Detection
 ```
 
 ### Windows
 
 ```powershell
-git clone https://github.com/<your-repo-link>.git
+git clone https://github.com/Fareeq1411/IDSC-SUB.git
 cd HYGD-Glaucoma-Detection
 ```
 
@@ -238,7 +273,7 @@ Result will be displayed on screen.
 ### macOS
 
 ```bash
-git clone https://github.com/<your-repo-link>.git
+git clone https://github.com/Fareeq1411/IDSC
 cd HYGD-Glaucoma-Detection
 python3 -m venv venv
 source venv/bin/activate
