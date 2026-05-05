@@ -14,6 +14,7 @@ APP_ROOT = os.path.join(tempfile.gettempdir(), "detectorui_flask")
 UPLOAD_DIR = os.path.join(APP_ROOT, "uploads")
 CROP_DIR = os.path.join(APP_ROOT, "crops")
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "bmp"}
+DATASET_URL = "https://drive.google.com/drive/folders/1c9-Z1ALDp4LNijbppCB1U50neW4B_xRl?usp=sharing"
 
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(CROP_DIR, exist_ok=True)
@@ -173,6 +174,9 @@ INDEX_HTML = """
         </div>
         <div class="flex flex-col gap-2 sm:flex-row">
           <input id="fileInput" type="file" accept=".png,.jpg,.jpeg,.bmp" class="hidden">
+          <a id="downloadDatasetButton" href="{{ dataset_url }}" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-cyan-300 px-6 py-2.5 text-center text-sm font-extrabold uppercase tracking-[0.18em] text-slate-950 transition hover:bg-cyan-200">
+            Download Dataset
+          </a>
           <button id="uploadButton" class="rounded-2xl bg-emerald-400 px-6 py-2.5 text-sm font-extrabold uppercase tracking-[0.18em] text-slate-950 transition hover:bg-emerald-300">
             Upload Eye Scan
           </button>
@@ -245,6 +249,31 @@ INDEX_HTML = """
     </main>
   </div>
 
+  <div id="tutorialModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/78 px-4 backdrop-blur-sm">
+    <div class="glass-card w-full max-w-lg rounded-[24px] p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-200/70">Before Uploading</p>
+          <h2 class="mt-2 text-2xl font-bold text-slate-50">Download the dataset first</h2>
+        </div>
+        <button id="closeTutorialButton" aria-label="Close tutorial" class="rounded-full border border-slate-600/80 bg-slate-900/70 px-3 py-1.5 text-sm font-bold text-slate-200 transition hover:border-slate-400 hover:text-white">
+          X
+        </button>
+      </div>
+      <p class="mt-4 text-sm leading-7 text-slate-300">
+        Open the Google Drive dataset, download the files, then place the dataset pictures inside your local dataset folder. After that, choose one eye scan image from the dataset and upload it here for analysis.
+      </p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a href="{{ dataset_url }}" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-cyan-300 px-5 py-3 text-center text-sm font-extrabold uppercase tracking-[0.16em] text-slate-950 transition hover:bg-cyan-200">
+          Download Dataset
+        </a>
+        <button id="startTutorialButton" class="rounded-2xl border border-slate-600/80 bg-slate-900/50 px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-slate-200 transition hover:border-slate-400 hover:text-white">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const dom = {
       fileInput: document.getElementById("fileInput"),
@@ -264,7 +293,10 @@ INDEX_HTML = """
       topStatusPill: document.getElementById("topStatusPill"),
       frameBanner: document.getElementById("frameBanner"),
       frameBannerTitle: document.getElementById("frameBannerTitle"),
-      frameBannerSubtext: document.getElementById("frameBannerSubtext")
+      frameBannerSubtext: document.getElementById("frameBannerSubtext"),
+      tutorialModal: document.getElementById("tutorialModal"),
+      closeTutorialButton: document.getElementById("closeTutorialButton"),
+      startTutorialButton: document.getElementById("startTutorialButton")
     };
 
     let randomBoxTimer = null;
@@ -532,9 +564,16 @@ INDEX_HTML = """
       dom.uploadButton.classList.remove("opacity-60", "cursor-not-allowed");
     }
 
+    function closeTutorial() {
+      dom.tutorialModal.classList.add("hidden");
+    }
+
     dom.uploadButton.addEventListener("click", () => {
       dom.fileInput.click();
     });
+
+    dom.closeTutorialButton.addEventListener("click", closeTutorial);
+    dom.startTutorialButton.addEventListener("click", closeTutorial);
 
     dom.resetButton.addEventListener("click", () => {
       runToken += 1;
@@ -575,7 +614,7 @@ def build_storage_path(base_dir, original_name):
 
 @app.get("/")
 def index():
-    return render_template_string(INDEX_HTML)
+    return render_template_string(INDEX_HTML, dataset_url=DATASET_URL)
 
 
 @app.post("/api/analyze")
